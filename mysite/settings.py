@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from decouple import config
 
 import os
-import django_on_heroku
+import django_heroku
 import dj_database_url
 
 
@@ -183,4 +183,4 @@ LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'index'
 
 # Activate Django-Heroku.
-django_on_heroku.settings(locals())
+django_heroku.settings(locals())

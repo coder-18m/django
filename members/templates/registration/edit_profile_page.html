@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+CALV | Edit Profile Page
+{% endblock%}
+
+
+{% block content %}
+
+{% if user.is_authenticated %}
+  {% if user.id == profile.user.id %}
+<h1 class="about-header">Edit Profile</h1>
+<form  class="edit-profile-form" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.as_p }}
+    <button class="button-54">Update Profile</button>
+</form>
+<br>
+<br>
+{% else %}
+User access denied: not authenticated to edit page.
+{% endif %}
+{% else %}
+User access denied: not authenticated.
+{% endif %}
+
+{% endblock %}

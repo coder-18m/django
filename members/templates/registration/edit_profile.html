@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+CALV | Account Settings
+{% endblock%}
+
+
+{% block content %}
+<h1 class="about-header">Account Settings</h1>
+
+
+<form  class="account-form" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+        <br>
+    {% if user.place.id %}
+    <a class="about-p" href="{% url 'edit_address' %}"><p>Edit Address Here</p></a>
+
+    {% else %}
+    <a class="about-p" href="{% url 'register_address' %}"><p>Regsiter Address Here</p></a>
+    {% endif %}
+    <button class="button-54">Update Account</button>
+</form>
+
+<br>
+<br>
+
+
+
+{% endblock %}

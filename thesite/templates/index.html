@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+CALV | Home
+{% endblock%}
+
+
+  {% block content %}
+
+  <div class="box">
+    <div class="box-h1">
+      <h1 class="title-h1">CITIZEN ACTION FOR LATAH VALLEY</h1>
+      <hr class="heading-hr">
+      <a class="register-btn" href="{% url 'register' %}">REGISTER</a>
+      <a class="register-btn" style="margin-left:10px;" href="https://www.change.org/p/spokane-city-mayor-and-city-council-join-us-in-protecting-latah-valley-4ac36f47-de50-4ea1-93d6-cb0b8de606c3?recruiter=1231760009&recruited_by_id=9fed1260-3861-11ec-ac34-c961eb1518f8&utm_source=share_petition&utm_campaign=share_petition&utm_term=fb0ab3296db548c5bbcadb2776bf9fb1&utm_medium=copylink&utm_content=cl_sharecopy_31220056_en-US%3A4">SIGN PETITION</a>
+    </div>
+  </div>
+
+  <h1 class="about-header" id="aboutItem">About</h1>
+  <hr class="about-hr">
+
+  <p class="about-p">The Latah Valley is a unique, special, and attractive area of the city of Spokane
+    with a deep geologic and human history. The Latah Valley is home to people who deeply appreciate the attributes
+    and treasures of conveniences to downtown/airport balanced with a rural feel, active farming, and a vibrant
+     wildlife corridor home to moose, deer, coyote, osprey, bald eagle, and many other creatures. <br></br>
+     Despite what should be protected, preserved, and a wisely planned for evolution of this area, the Latah Valley is
+     under tremendous pressure by the City of Spokane and development interests whose pursuits are threatening not only
+     the integrity and specialness of this area but literally the lives of the people and wildlife who call the Latah Valley home. <br></br>
+     Latah Valley deserves to be protected!</p>
+    <h1 class="about-call">Call to Action</h1>
+    <hr class="about-hr-2">
+    <p class="about-p">The call-to-action is straightforward, Citizen Action for Latah Valley and its partners/supporters are
+      calling on the city council and mayor of Spokane to adopt a moratorium on major development in the Latah Valley until
+      comprehensive planning can be undertaken and funding sources identified for needed infrastructure.  Please call on the
+      mayor and city council to adopt a moratorium on major development in the Latah Valley!  </p>
+    <h1 class="about-call">Why is a moratorium needed for Latah Valley?</h1>
+    <hr class="about-hr-2">
+    <ol class="about-ol">
+      <li>Current roadway infrastructure can not handle traffic loads safely through Latah Valley</li>
+      <li>Near term projected roadway improvements will take time to implement and are not designed to be long term solutions</li>
+      <li>Latah Valley lacks adequate fire department services</li>
+      <li>Latah Valley lacks adequate police department services</li>
+      <li>Latah Valley has NO public transportation</li>
+      <li>Latah Valley has NO public library</li>
+      <li>Latah Valley has NO schools</li>
+      <li>Latah Valley has NO safe walking/biking routes connecting to other parts of the city</li>
+      <li>Latah Valley has NO community center</li>
+      <li>Proposed development will NOT be affordable (to most people in Spokane) or low income</li>
+    </ol>
+
+{% endblock %}

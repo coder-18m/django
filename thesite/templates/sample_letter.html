@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+CALV | Moratorium Talking Points and Sample Letter
+{% endblock%}
+
+
+  {% block content %}
+  <h1 class="about-header" id="aboutItem">Moratorium Talking Points and Sample Letter</h1>
+  <hr class="about-hr">
+  <p class="about-p"><u>Subject line:</u> Why protect the Latah Valley? Say it in a letter to the editor.</p>
+  <p class="about-p" >It's critical that we keep the pressure up regarding having the city council and mayor take clear action to protect Latah Valley and adopt a moratorium on major development in the Latah Valley until comprehensive planning can be undertaken and funding sources identified for needed infrastructure.
+  <br></br>The Spokane city government needs to take action to limit major planned developments - for that to happen they need to hear from YOU. To facilitate neighborhood communication to the city we are supplying you with the following (see below):</p>
+  <ol class="about-ol">
+    <li><a href="{% url 'sampleleter' %}#talk-link-b">Talking points</a></li>
+    <li><a href="{% url 'sampleleter' %}#temp-link-b">Template letter</a></li>
+    <li><a href="{% url 'sampleleter' %}#contact-link-b">Contact information</a></li>
+  </ol>
+  <p class="about-p">Don't delay!  Contact the mayor and city council today to ask that they adopt a moratorium on major development in the Latah Valley.</p>
+  <h1 class="about-call" id="talk-link-b">TALKING POINTS</h1>
+  <hr class="about-hr-2">
+  <ol class="about-ol-n">
+    <li>I am asking you to adopt a moratorium on major development in the Latah Valley until comprehensive planning can be undertaken and funding sources identified for needed infrastructure. </li>
+    <li>Road infrastructure in Latah Valley is unable to safely handle the current traffic loads; increasing car and truck traffic that will come with increased housing and commercial development will only increase congestion, accidents, and the potential for serious injury or death. </li>
+    <li>The Latah Valley currently has inadequate to zero community services needed to be a functional and intact region of the city. Deficiencies range from public transportation, fire response, police response, library services, schools, and a community center. Adding more commercial and housing development will only amplify those inadequacies and disparity in this part of the city. I am asking you to adopt a moratorium on major development in the Latah Valley until comprehensive planning can be undertaken and funding sources identified for needed infrastructure. </li>
+    <li>Agricultural land and wildlife corridors in Latah Valley will be directly affected and undermined by adding more development. Citizens of the Latah Valley have a strong interest in wanting to protect farmland and wildlife habitat from unwarranted development. I am asking you to adopt a moratorium on major development in the Latah Valley until comprehensive planning can be undertaken and funding sources identified for needed infrastructure. </li>
+  </ol>
+  <h1 class="about-call" id="temp-link-b">TEMPLATE LETTER</h1>
+  <hr class="about-hr-2">
+  <p class="about-p-2">Dear [city council member; mayor]</p>
+  <p class="about-p-2">I am contacting you today to call for and adopt a moratorium on major development in the Latah Valley (Grandview/Thorpe, Latah/Hangman, Eagle Ridge).  Because of lack of planning and monitoring by the city decades ago, any level of major development cannot be adequately, responsibly, or safely absorbed by this part of the city until comprehensive planning is completed, to include dedicated funding for needed infrastructure.
+  <br></br>There is a pathway to adequately, safely, and mindfully balance the integrity of the Latah Valley, protect the agricultural and wildlife corridors, manage traffic movements, and allow for smart development. That can only happen by pausing more major development in an area that lacks community resources and appropriate infrastructure and is in jeopardy of losing key community-wide attributes such as the inventory of viable agricultural land and critical wildlife habitat.
+  <br></br>The pressure to grow Spokane should never come at the expense of preserving what makes Spokane a wonderful place to live. Please do the right thing - adopt a moratorium on major development in the Latah Valley until comprehensive planning can be undertaken and funding sources identified for needed infrastructure.</p>
+  <p class="about-p-2">Sincerely,</p>
+  <h1 class="about-call" id="contact-link-b">CONTACT INFORMATION</h1>
+  <hr class="about-hr-2">
+  <ol class="about-ol">
+    <li>Mailing address - 808 W. Spokane Falls Blvd., Spokane, WA 99201</li>
+    <li>Phone - 509.625.6250</li>
+    <li>Email -</li>
+  </ol>
+
+  <p class="about-p">Nadine Woodward = mayor@spokanecity.org <br></br>
+Breean Beggs = bbeggs@spokanecity.org <br></br>
+Michael Cathcart = mcathcart@spokanecity.org <br></br>
+Jonathan Bingle = jbingle@spokanecity.org <br></br>
+Lori Kinnear = lkinnear@spokanecity.org <br></br>
+Betsy Wilkerson = bwilkerson@spokanecity.org <br></br>
+Zac Zappone = zzappone@spokanecity.org <br></br>
+Karen Stratton = kstratton@spokanecity.org
+</p>
+
+  <p class="about-p-2" id="about-p-2-id"><b>Please let us know when you've contacted the mayor and city council. Drop us a line at anyone one of these places: </b></p>
+  <ol class="about-ol">
+    <li>Email - contactcalv@gmail.com</li>
+    <li>Phone - 509-795-0048</li>
+    <li>Mail - Citizen Action for Latah Valley P.O. Box 19014 Spokane 99219</li>
+  </ol>
+
+  </body>
+
+
+  </html>
+
+{% endblock %}

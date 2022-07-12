@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}CALV | User Profile{% endblock %}
+
+{% block content %}
+
+
+
+<h1 class="about-header">User Profile</h1>
+<hr class="about-hr">
+<br>
+<br>
+
+<div class="author-container" >
+  <div class="auth-item-1" >
+    <div class="auth-pic">
+      {% if page_user.profile_pic %}
+      <img style="width: 100%; border-radius: 50%;" src="{{ post.author.profile.profile_pic.url }}" alt="">
+
+      {% else %}
+      <img style="width: 100%; border-radius: 50%;" src="{% static 'Img/default_pic4.png' %}" alt="">
+      {% endif %}
+    </div>
+    <div class="author-name">
+      <h1 class="auth-item-2-h1"> {{ page_user.user.first_name }} {{ page_user.user.last_name }}</h1>
+
+    </div>
+  </div>
+
+  <div class="auth-item-2">
+
+    <div class="url-container">
+          {% if page_user.website_url %}
+              <a href="{{ page_user.website_url }}"><i class="fa-solid fa-window-maximize"></i></a>
+          {% endif %}
+
+          {% if page_user.facebook_url %}
+               <a href="{{ page_user.facebook_url }}"><i class="fa-brands fa-facebook"></i></a>
+          {% endif %}
+
+          {% if page_user.twitter_url %}
+              <a href="{{ page_user.twitter_url }}"><i class="fa-brands fa-twitter"></i></a>
+          {% endif %}
+
+          {% if page_user.instagram_url %}
+              <a href="{{ page_user.instagram_url }}"><i class="fa-brands fa-instagram"></i></a>
+          {% endif %}
+  </div>
+  <div class="bio-item">
+    <h1 class="bio-h1" >{{ page_user.bio }}</h1>
+  </div>
+</div>
+<br>
+</div>
+<br>
+<br>
+{% endblock %}

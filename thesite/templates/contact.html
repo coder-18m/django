@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+CALV | Contact
+{% endblock%}
+
+
+  {% block content %}
+  {% if name %}
+  <center>
+    <br>
+    <h2 class="thanks-email">Thanks, {{ name }}!</h2>
+    <p class="thanks-p" >We received your email and will respond shortly...</p>
+  </center>
+  <br>
+  {% endif %}
+
+
+  <h1 class="about-header" id="aboutItem">Contact Info.</h1>
+  <hr class="about-hr">
+
+  <p class="about-p">Mayor's office - <a id="contact-id" target="_blank" href="https://my.spokanecity.org/mayor/">https://my.spokanecity.org/mayor/</a>
+    <br></br> Spokane City Council - <a target="_blank" id="contact-id" href="https://my.spokanecity.org/citycouncil/">https://my.spokanecity.org/citycouncil/</a> <br></br>
+     Spokesman-Review: <a href="https://www.spokesman.com/letters/">https://www.spokesman.com/letters/</a> <br></br> The Inlander: <a href="The Inlander: https://www.inlander.com/spokane/ReachUs/Page">The Inlander: https://www.inlander.com/spokane/ReachUs/Page</a>
+   </p><br></br>
+
+   <div class="container">
+    <form action="{% url 'contact' %}" method="POST">
+      {% csrf_token %}
+        <div class="contact-box">
+          <div class="left"></div>
+          <div class="right">
+            <h2 class="contact-form-h2">Contact Us</h2>
+            <input type="text" class="field" name="full-name" placeholder="Your Name">
+            <input type="text" class="field" name="email" placeholder="Your Email">
+            <input type="text" class="field" name="subject" placeholder="Subject">
+            <textarea id="textarea-1" name="message" placeholder="Message" class="field"></textarea>
+            <button type="Submit" class="btn">Send</button>
+          </div>
+        </div>
+    </form>
+   </div>
+
+  <h1 class="about-call">CONTACT INFORMATION FOR CITY COUNCIL AND MAYOR</h1>
+  <hr class="about-hr-2">
+  <div class="pack-container">
+    <div class="pack-item">
+      <ol class="contact-ol">
+        <li> Mailing address - 808 W. Spokane Falls Blvd., Spokane, WA 99201</li>
+        <li> Phone - 509.625.6250</li>
+        <li>Email -</li>
+      </ol>
+
+        <p class="about-p">Nadine Woodward = mayor@spokanecity.org <br></br>
+  Breean Beggs = bbeggs@spokanecity.org <br></br>
+  Michael Cathcart = mcathcart@spokanecity.org <br></br>
+  Jonathan Bingle = jbingle@spokanecity.org <br></br>
+  *Lori Kinnear = lkinnear@spokanecity.org <br></br>
+  *Betsy Wilkerson = bwilkerson@spokanecity.org <br></br>
+  Zac Zappone = zzappone@spokanecity.org <br></br>
+  Karen Stratton = kstratton@spokanecity.org <br></br>
+  * District 2 Representatives for Latah Valley
+  </p>
+    </div>
+    <div class="pack-item">
+        <hr id="pack-id"class="about-hr-2">
+      <ol class="about-ol">
+        <li>Brian Schaeffer, Fire Chief =
+      bschaeffer@spokanecity.org
+        </li>
+        <li>Marlene Feist, Director, Public Works =
+mfeist@spokanecity.org
+</li>
+        <li>Katherine Miller, Director, Integrated Capital Management =
+kemiller@spokanecity.org
+</li>
+        <li>Spencer Gardner, Director, Planning =
+sgardner@spokanecity.org
+</li>
+        <li>Garrett Jones, Director, Park sand Rec =
+gjones@spokanecity.org
+</li>
+        <li>Adam Swinyard, Superintendent of Schools =
+AdamSw@spokaneschools.org
+</li>
+        <li>Craig Meidl, Police Chief =
+cmeidl@spokanepolice.org
+</li>
+        <li>Andrew Chanse, Director, Public Library =
+achanse@spokanelibrary.org
+</li>
+
+
+      </ol>
+    </div>
+
+
+      </div>
+
+
+  </body>
+
+  </html>
+
+{% endblock %}

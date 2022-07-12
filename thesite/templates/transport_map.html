@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+CALV | Public Transportation Maps
+{% endblock%}
+
+
+  {% block content %}
+  <h1 class="about-header" id="aboutItem">Public Transportation Maps</h1>
+  <hr class="about-hr">
+  <div class="map-container">
+    <div class="map-item-1">
+      <a href="{% static 'Img\maps\publictrans\STA_2021-11-05_2.jpg' %}">STA_2021-11-05_2.jpg <i class="fa-solid fa-file-lines"></i></a>
+    </div>
+    <div class="map-item-2">
+      <a href="{% static 'Img\maps\publictrans\STA_2021-11-05_3.jpg' %}">STA_2021-11-05_3.jpg <i class="fa-solid fa-file-lines"></i></a>
+    </div>
+    <div class="map-item-3">
+      <a href="{% static 'Img\maps\publictrans\STA_2021-11-05.jpg' %}">STA_2021-11-05.jpg <i class="fa-solid fa-file-lines"></i></a>
+    </div>
+    <div class="map-item-4">
+      <a href="{% static 'Img\maps\publictrans\STA_System_Map_Sept_21 master.pdf' %}">STA_System_Map_Sept_21 master.pdf <i class="fa-solid fa-file-lines"></i></a>
+    </div>
+    <div class="map-item-5">
+      <a href="{% static 'Img\maps\publictrans\STA_System_Map_Sept_21_Crop.png' %}">STA_System_Map_Sept_21 Crop.png <i class="fa-solid fa-file-lines"></i></a>
+    </div>
+    <div class="map-item-6">
+      <a href="{% static 'Img\maps\publictrans\STA_System_Map_Sept_21_Front_790_571_2.png' %}">STA_System_Map_Sept_21 Front.png <i class="fa-solid fa-file-lines"></i></a>
+    </div>
+    <div class="map-item-7">
+      <a href="{% static 'Img\maps\publictrans\STA_System_Map_Sept_21_Front_790_571.png' %}">STA_System_Map_Sept_21 Front_790_571.png <i class="fa-solid fa-file-lines"></i></a>
+    </div>
+  </div>
+
+
+  </body>
+
+  </html>
+
+{% endblock %}

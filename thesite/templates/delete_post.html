@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+CALV | Delete Post
+{% endblock%}
+
+
+{% block content %}
+{% if request.user.is_superuser %}
+<a class="back-btn" href="{% url 'home' %}"> <i class="fa-solid fa-arrow-left"></i> Back</a>
+<br/>
+<h1 class="about-header">Delete: {{ post.title }}</h1>
+
+<form class="delete_form" method="POST">
+    {% csrf_token %}
+    <h1>Are you sure?</h1>
+    <button class="delete-btn">Delete Post</button>
+</form>
+{% else %}
+User access denied: not authenticated.
+{% endif %}
+
+
+
+
+{% endblock %}

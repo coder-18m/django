@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+CALV | Login
+{% endblock%}
+
+
+{% block content %}
+<style>
+.alert {
+  padding: 20px;
+  background-color: #ff5555;
+  color: white;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
+.login-error-h1, .login-error{
+  font-size: 16px;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+</style>
+{% if messages %}
+  {% for message in messages %}
+
+    <div class="alert">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+  <h1 class="login-error-h1"> {{ message }}</h1>
+</div>
+
+  {% endfor %}
+{% endif %}
+<!--<h2>login to view CALV posts!</h2>-->
+<form  class="form-login" method="POST">
+  <h1 class="about-header">Login</h1>
+    <img class="login-img" src="{% static 'Img/group-chat.png' %}" alt="">
+    {% csrf_token %}
+           <input type="text" class="field" name="username" placeholder="Username">
+           <input type="password" class="field" name="password" placeholder="Password">
+    <p class="small-p">No Account? <a class="small-p" href="{% url 'register' %}">Register!</a></p>
+    <br>
+    <p class="small-p"><a href="{% url 'password_reset' %}">Forgot Password?</a></p>
+
+    <button class="button-54" role="button">Login</button>
+</form>
+
+
+
+
+
+
+{% endblock %}

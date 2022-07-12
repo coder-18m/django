@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+CALV | Regiser Address
+{% endblock%}
+
+
+{% block content %}
+
+<p class="about-p">Register your address here.</p>
+<form  class="form-login" action="." method="post">
+  {{ form.as_p }}
+  <button class="button-54" role="button">Regiser Address</button>
+  {% csrf_token %}
+</form>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+CALV | School Maps
+{% endblock%}
+
+
+  {% block content %}
+  <h1 class="about-header" id="aboutItem">School Maps</h1>
+  <hr class="about-hr">
+  <div class="map-container">
+    <div class="map-item-1">
+      <a href="{% static 'Img\maps\schools\SD 81 elementary graphic 2021.jpg' %}">SD 81 elementary graphic 2021.jpg <i class="fa-solid fa-file-lines"></i></a>
+    </div>
+    <div class="map-item-2">
+      <a href="{% static 'Img\maps\schools\SD 81 High Sch graphic 2021.jpg' %}">SD 81 High Sch graphic 2021.jpg <i class="fa-solid fa-file-lines"></i></a>
+    </div>
+    <div class="map-item-3">
+      <a href="{% static 'Img\maps\schools\SD 81 Mid Sch graphic 2021.jpg' %}">SD 81 Mid Sch graphic 2021.jpg <i class="fa-solid fa-file-lines"></i></a>
+    </div>
+
+  </div>
+
+
+
+  </body>
+
+  </html>
+
+{% endblock %}

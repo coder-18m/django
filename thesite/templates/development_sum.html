@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+CALV | Development Summary
+{% endblock%}
+
+
+  {% block content %}
+
+  <h1 class="about-header" id="aboutItem">Projected Development Summary</h1>
+  <hr class="about-hr">
+  <p class="about-p">The Latah Valley (Grandview/Thorpe, Vinegar Flats, Qualchan Hills, Eagle Ridge, Hangman, other neighborhoods and HOAs) is projected to have over 3700 additional housing units along with commercial development in the near term. DOT estimates about 50,000 cars would use US-195 compared to the current 22,000, making this highway even more unsafe and increasing legal liability due to subsequent accidents. Members of Citizen Action for Latah Valley have been trying for years to get the City of Spokane, the mayor’s office, and city council to take real action, however the only action taken has been the green lighting of more major development. </p>
+
+  <h1 class="about-call">More information  <i class="fa-solid fa-map-location-dot"></i></h1>
+  <hr class="about-hr-2">
+
+  <div class="map-container">
+    <div class="map-item-1">
+      <a href="{% url 'developmap' %}">Maps of Current Developments</a>
+    </div>
+    <div class="map-item-2">
+      <a href="{% url 'transportmap' %}">Public Transportation Maps</a>
+    </div>
+    <div class="map-item-3">
+      <a href="{% url 'schoolsmap' %}">School Maps</a>
+    </div>
+  </div>
+
+  </body>
+
+  </html>
+{% endblock %}

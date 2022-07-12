@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+CALV | Donate
+{% endblock%}
+
+
+  {% block content %}
+<style>
+  .padding-container{
+    padding: 20px;
+  }
+.container-donate{
+  box-shadow:0px 0px 19px 5px rgb(0 0 0 / 19%);
+  background-color:white;
+  display: flex;
+  width:900px;
+  margin:auto;
+}
+.item-donate{
+background-image:url('/static/Img/calv-home.jpg');
+background-size: cover;
+  flex-grow: 2;
+  text-align: center;
+}
+.allign-center{
+
+}
+.donate-h1{
+  margin-top: 20px;
+  padding: 10px;
+  margi
+  width: 40%;
+  margin-left: 60%;
+  background: white;
+  font-family: 'Ubuntu', sans-serif;
+  text-align center;
+}
+.container-donate2{
+  display: none;
+}
+.container-donate3{
+  display: none;
+}
+@media (max-width: 949px) {
+.container-donate{
+  display: none;
+}
+.container-donate3{
+  display: block;
+}
+.container-donate2{
+  display: none;
+}
+.allign-center3{
+  width: 400px;
+  margin: auto;
+}
+.allign-center3{
+  box-shadow:0px 0px 19px 5px rgb(0 0 0 / 19%);
+  background-color:white;
+}
+}
+@media (max-width: 499px) {
+  .container-donate3{
+    display: none;
+  }
+  .container-donate2{
+    display: block;
+  }
+  .allign-center2{
+    background-color:white;
+  }
+
+}
+
+</style>
+<h1 class="about-header">Make a Donation <i class="fa-solid fa-hand-holding-dollar"></i></h1>
+<hr class="about-hr">
+<div class="padding-container">
+
+
+<div class="container-donate">
+  <div class="align-center">
+    <script src="https://donorbox.org/widget.js" paypalExpress="false"></script><iframe src="https://donorbox.org/embed/citizen-action-for-latah-valley" name="donorbox" allowpaymentrequest="allowpaymentrequest" seamless="seamless" frameborder="0" scrolling="no" height="900px" width="100%" style="max-width: 500px; min-width: 250px; max-height:none!important"></iframe>
+  </div>
+  <div class="item-donate">
+  </div>
+
+</div>
+
+</div>
+
+
+<div class="container-donate2">
+  <div class="allign-center2">
+    <script src="https://donorbox.org/widget.js" paypalExpress="false"></script><iframe src="https://donorbox.org/embed/citizen-action-for-latah-valley" name="donorbox" allowpaymentrequest="allowpaymentrequest" seamless="seamless" frameborder="0" scrolling="no" height="900px" width="100%" style="max-width: 500px; min-width: 250px; max-height:none!important"></iframe>
+  </div>
+</div>
+
+<div class="container-donate3">
+  <div class="allign-center3">
+    <script src="https://donorbox.org/widget.js" paypalExpress="false"></script><iframe src="https://donorbox.org/embed/citizen-action-for-latah-valley" name="donorbox" allowpaymentrequest="allowpaymentrequest" seamless="seamless" frameborder="0" scrolling="no" height="900px" width="100%" style="max-width: 400px; min-width: 250px; max-height:none!important"></iframe>
+  </div>
+</div>
+
+
+
+  {% endblock %}

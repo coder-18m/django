@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+CALV | Edit Post
+{% endblock%}
+
+
+{% block content %}
+{% if request.user.is_superuser %}
+<a class="back-btn" href="{% url 'home' %}"> <i class="fa-solid fa-arrow-left"></i> Back</a>
+<h1 class="about-header">Update: {{ post.title }}</h1>
+<form  class="addpost-form" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.media }}
+    {{ form.as_p }}
+    <button class="button-54">Update</button>
+</form>
+<br>
+<br>
+{% else %}
+User access denied: not authenticated.
+{% endif %}
+
+
+{% endblock %}

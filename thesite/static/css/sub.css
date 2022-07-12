@@ -1,0 +1,35 @@
+.map-container{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+.map-item-1, .map-item-2, .map-item-3, .map-item-4, .map-item-5, .map-item-6, .map-item-7{
+
+  margin-top: 22px;
+  width: 50%;
+  margin-left: 25%;
+  margin-right: 25%;
+  border: 3px solid #B78549;
+  text-align: center;
+  padding: 8px;
+}
+.map-item-1:hover, .map-item-2:hover, .map-item-3:hover, .map-item-4:hover, .map-item-5:hover, .map-item-6:hover, .map-item-7:hover{
+  box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.14) , 0px 1px 10px 0px rgba(0,0,0,0.12) , 0px 2px 4px -1px rgba(0,0,0,0.2);
+}
+
+.map-item-1 a, .map-item-2 a, .map-item-3 a, .map-item-4 a, .map-item-5 a, .map-item-6 a, .map-item-7 a {
+
+  font-family: 'Barlow Condensed', sans-serif;
+  text-transform: uppercase;
+  color: black;
+  text-decoration: none;
+  padding: 10px;
+}
+
+@media (min-width: 790px) {
+  .map-item-1, .map-item-2, .map-item-3, .map-item-4, .map-item-5, .map-item-6, .map-item-7{
+    width: 30%;
+    margin-left: 35%;
+    margin-right: 35%;
+  }
+}

@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}CALV | Category{% endblock %}
+
+{% block content %}
+
+
+
+
+{% if category_posts %}
+<a class="back-btn" href="{% url 'home' %}"> <i class="fa-solid fa-arrow-left"></i> Back</a>
+<h1 class="about-header">{{ cats }} Category</h1>
+
+
+{% for post in category_posts %}
+
+
+<div class="post-con">
+  <h1>
+
+
+  <a class="title-post"href="{% url 'article-detail' post.pk %}">{{ post.title }}</a><br/>
+  <div class="posts-wrapper">
+  <h1 class="art-h1">Author: {{ post.author.first_name }} {{ post.author.last_name }} -
+    <a href="{% url 'category' post.category|slugify %}"> {{post.category}}</a> -
+    {{ post.post_date }}</h1>
+
+    {% if request.user.is_superuser %}
+    <div class="ed-del">
+
+    <a class="posts-edit" href="{% url 'update_post' post.pk %}">Edit</a>
+    {% endif %}
+
+    {% if request.user.is_superuser %}
+    <a class="posts-delete" href="{% url 'delete_post' post.pk %}">Delete</a>
+    </div>
+    {% endif %}
+
+</div>
+
+
+    <hr class="posts-hr">
+  {{ post.body|safe|linebreaksbr }}
+<!-- slice:"500" -->
+</h1>
+</div>
+<br>
+{% endfor %}
+
+{% else %}
+    <a class="back-btn" href="{% url 'home' %}"> <i class="fa-solid fa-arrow-left"></i> Back</a>
+    <h2 class="sorry-h1">Sorry, no posts yet under this category!</h2>
+{% endif %}
+
+{% endblock %}

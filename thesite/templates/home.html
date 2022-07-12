@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block title %}CALV | Announcements{% endblock %}
+
+{% block content %}
+
+
+
+
+
+
+
+
+
+<h1 class="about-header">Posts</h1>
+<hr class="about-hr">
+<div class="container-sortby">
+
+  <div class="sortby-item-1">
+    <a href="#" class="sort-a">Sort By  <i class="fa-solid fa-caret-down"></i></a>
+    {% if cat_menu %}
+    <div class="dropdown-content">
+
+      {% for item in cat_menu %}
+      <a href="{% url 'category' item|slugify %}">{{item }}</a>
+      {% endfor %}
+
+  </div>
+  </div>
+{% endif %}
+{% if request.user.is_superuser %}
+<div class="sortby-wrapper">
+  <div class="sbw-item-1">
+      <a href="{% url 'add_post' %}">Add Post  <i class="fa-solid fa-plus"></i></a>
+  </div>
+  <div class="sbw-item-2">
+      <a href="{% url 'add_category' %}">Add Category  <i class="fa-solid fa-plus"></i></a>
+  </div>
+
+</div>
+{% endif %}
+
+</div>
+
+
+{% for post in object_list %}
+<div class="post-con">
+  <h1>
+
+
+  <a class="title-post"href="{% url 'article-detail' post.pk %}">{{ post.title }}</a><br/>
+  <div class="posts-wrapper">
+  <h1 class="art-h1">Author: {{ post.author.first_name }} {{ post.author.last_name }} -
+    <a href="{% url 'category' post.category|slugify %}"> {{post.category}}</a> -
+    {{ post.post_date }}</h1>
+
+    {% if request.user.is_superuser %}
+    <div class="ed-del">
+
+    <a class="posts-edit" href="{% url 'update_post' post.pk %}">Edit</a>
+    {% endif %}
+
+    {% if request.user.is_superuser %}
+    <a class="posts-delete" href="{% url 'delete_post' post.pk %}">Delete</a>
+    </div>
+    {% endif %}
+
+</div>
+
+
+    <hr class="posts-hr">
+  {{ post.body|safe|linebreaksbr }}
+<!-- slice:"500" -->
+</h1>
+</div>
+<br>
+{% endfor %}
+
+
+
+{% endblock %}

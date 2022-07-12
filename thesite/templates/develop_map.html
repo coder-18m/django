@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+CALV | Maps of Current Developments
+{% endblock%}
+
+
+  {% block content %}
+
+  <h1 class="about-header" id="aboutItem">Maps of Current Developments</h1>
+  <hr class="about-hr">
+  <div class="map-container">
+    <div class="map-item-1">
+      <a href="{% static 'Img\maps\currdevlop\Eagle Ridge-Qualchan Apr 2022.pdf' %}">Eagle Ridge-Qualchan Apr 2022.pdf <i class="fa-solid fa-file-lines"></i></a>
+    </div>
+    <div class="map-item-2">
+      <a href="{% static 'Img\maps\currdevlop\Grandview Apr 2022.pdf' %}">Grandview Apr 2022.pdf <i class="fa-solid fa-file-lines"></i></a>
+    </div>
+    <div class="map-item-3">
+      <a href="{% static 'Img\maps\currdevlop\Latah Valley Apr 2022.pdf' %}">Latah Valley Apr2022.pdf <i class="fa-solid fa-file-lines"></i></a>
+    </div>
+    <div class="map-item-4">
+      <a href="{% static 'Img\maps\currdevlop\Thorpe-Vinegar Flats Apr 2022.pdf' %}">Thorpe-Vinegar Flats Apr 2022.pdf <i class="fa-solid fa-file-lines"></i></a>
+    </div>
+  </div>
+  </body>
+
+  </html>
+
+  {% endblock %}

@@ -1,0 +1,206 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+
+
+  <link rel="shortcut icon" href="{% static 'Img/logo-new2.png' %}">
+  <meta charset="utf-8">
+  <link rel="stylesheet" type='text/css' href="{% static 'css/main.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/sub.css' %}">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name=viewport content="width=device-width, initial-scale=1">
+  <script src="https://kit.fontawesome.com/6c8e01facf.js" crossorigin="anonymous"></script>
+  <script href="#" ></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400&display=swap');
+  </style>
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap');
+  </style>
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Share&display=swap');
+  </style>
+
+
+
+  <title>{% block title %} {% endblock %}</title>
+</head>
+<!-- fonts-->
+
+<body>
+  <div class="wrapper">
+    <a class="logo" href="{% url 'index' %}"><img src="{% static 'Img/logo-new2.png' %}" alt=""></a>
+        <div class="wrapper-2">
+
+          <!-- and here -->
+          <div class="item-2">
+             <a href="{% url 'home' %}">Posts</a>
+          </div>
+          {% if user.is_authenticated %}
+
+          <div class="sortby-item-1" >
+            <div>
+              <a href="#" class="account-drop"style="padding-bottom: 30px; padding-left: 30px">{{ user.first_name }} <i class="fa-solid fa-caret-down"></i></a>
+            </div>
+            <div class="dropdown-content-2" >
+
+              <a href="{% url 'logout' %}">Logout</a>
+              <a href="{% url 'edit_profile' %}">Settings</a>
+
+              {% if user.profile.id %}
+                  <a href="{% url 'edit_profile_page' user.profile.id %}">Edit Profile</a>
+                  <a href="{% url 'show_profile_page' user.profile.id %}">View Profile</a>
+                  {% if request.user.is_superuser %}
+                  <a href="{% url 'export_users_xls' %}">Export User Info</a>
+                  <a href="{% url 'export_addresses_xls' %}">Export Address Info</a>
+                  {% endif %}
+
+              {% else %}
+                  <a href="{% url 'create_profile_page' %}">Add Profile</a>
+              {% endif %}
+
+
+
+          </div>
+          </div>
+
+          {% else %}
+          <div class="item-1">
+            <a href="{% url 'login' %}">Sign In</a>
+          </div>
+          {% endif %}
+          <!-- place back here!!!-->
+        </div>
+  </div>
+
+  <nav>
+
+    <label for="btn"><img class="bars" src="{% static 'Img/menu-2.png' %}" alt="Open Menu"></label>
+    <input class="nav-input" type="checkbox" id="btn">
+    <ul>
+
+      <li>
+        <a class="mobile-li" href="{% url 'index' %}">Home</a>
+      </li>
+      <li>
+        <a class="mobile-li" href="{% url 'index' %}#aboutItem">About</a>
+      </li>
+<!-- href="javascript:void(0)" -->
+
+      <li>
+        <label for="btn-2" class="show">Situation +</label>
+        <a href="#">Situation</a>
+        <input class="nav-input" type="checkbox" id="btn-2">
+        <ul class="ul-li-ul">
+          <li><a class="sub-a" href="{% url 'developsum' %}">Development Sum.</a></li>
+          <li>
+            <label for="btn-3" class="show">More +</label>
+            <a class="sub-a" href="#">Maps<i class="fa-solid fa-plus"></i></a>
+            <input class="nav-input" type="checkbox" id="btn-3">
+            <ul>
+              <li><a class="submenu" href="{% url 'developmap' %}">Developments</a></li>
+              <li><a class="submenu" href="{% url 'transportmap' %}">Transportation</a></li>
+              <li><a class="submenu" href="{% url 'schoolsmap' %}">Schools</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <label for="btn-4" class="show">Get Involved +</label>
+        <a href="#">Get Involved</a>
+        <input class="nav-input" type="checkbox" id="btn-4">
+        <ul class="ul-li-ul">
+          <li><a class="sub-a" href="{% url 'contact' %}">Contact</a></li>
+          <li><a class="sub-a" href="{% url 'sampleleter' %}">Sample Letter</a></li>
+          <li><a class="sub-a" href="{% url 'editletter' %}">Editor Letter</a></li>
+          <li><a class="sub-a" href="{% url 'fire' %}">Fire Dept. Points</a></li>
+          <li><a href="https://www.change.org/p/spokane-city-mayor-and-city-council-join-us-in-protecting-latah-valley-4ac36f47-de50-4ea1-93d6-cb0b8de606c3?recruiter=1231760009&recruited_by_id=9fed1260-3861-11ec-ac34-c961eb1518f8&utm_source=share_petition&utm_campaign=share_petition&utm_term=fb0ab3296db548c5bbcadb2776bf9fb1&utm_medium=copylink&utm_content=cl_sharecopy_31220056_en-US%3A4"
+            class="sub-a" target="_blank">Sign Petition</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <label for="btn-5" class="show">Resources +</label>
+        <a href="#">Resources</a>
+        <input class="nav-input" type="checkbox" id="btn-5">
+        <ul class="ul-li-ul">
+          <li><a class="sub-a"href="{% static 'Img\sources\CALV Brochure.pdf' %}">CALV Brochure</a></li>
+          <li><a class="sub-a" href="{% static 'Img\sources\Comprehensive Plan.pdf' %}">Comp. Plan</a></li>
+          <li><a class="sub-a" href="{% static 'Img\sources\Development Application flow chart.pdf' %}">Dev. Flow Chart</a></li>
+          <li><a class="sub-a" href="{% static 'Img\sources\Development Notification Process Info.pdf' %}">Notification Info.</a></li>
+          <li><a class="sub-a" href="{% static 'Img\sources\Greens at Meadowlane Hearing Approval.pdf' %}">Hearing Results</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <a class="mobile-li" href="{% url 'donate' %}">Donate</a>
+      </li>
+
+
+
+      <li><a class="facebook" href="https://www.facebook.com/ContactCALV" target="_blank"><i class="fa-brands fa-facebook-square"></i></a></li>
+
+
+    </ul>
+
+  </nav>
+  {% block content %}
+  {% endblock %}
+
+  <footer>
+    <div class="containerb">
+      <div class="sec aboutus">
+        <h2>About Us</h2>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+        <ul class="sci">
+          <li>
+            <a class="facebook" href="https://www.facebook.com/ContactCALV" target="_blank"><i class="fa-brands fa-facebook-square"></i></a>
+          </li>
+        </ul>
+      </div>
+      <div class="sec quickLinks">
+        <h2>Quick Links</h2>
+        <ul>
+          <li><a href="{% url 'index' %}#aboutItem">About</a></li>
+          <li><a href="{% url 'contact' %}">Contact</a></li>
+          <li><a href="https://www.termsfeed.com/live/bc9962b1-c6eb-48f1-afa0-f00a8bccf562">Privacy Policy</a></li>
+          <li><a href="{% url 'register' %}">Register</a></li>
+        </ul>
+      </div>
+      <div class="sec contact">
+        <h2>Contact Info</h2>
+        <ul class="info">
+          <li>
+            <span><i class="fa-solid fa-location-dot"></i></span>
+            <span>Address</span>
+          </li>
+          <li>
+            <span><i class="fa-solid fa-envelope"></i></span>
+            <p><a href="mailto:contactCALV@gmail.com">contactCALV@gmail.com</a></p>
+          </li>
+          <li>
+            <span><i class="fa-solid fa-phone"></i></span>
+            <p><a href="tel:12345678900">+1 234 567 8900</a></p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+  <div class="copyrightText">
+    <p>© 2022 Citizen Action For Latah Valley</p>
+
+  </div>
+
+
+</body>
+
+
+
+
+
+
+</html>

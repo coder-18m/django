@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+CALV | Create New Profile Page
+{% endblock%}
+
+
+{% block content %}
+
+{% if user.is_authenticated %}
+<h1 class="about-header">Create Profile Page</h1>
+<form  class="edit-profile-form" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.as_p }}
+    <button class="button-54">Create Profile Page</button>
+</form>
+<br>
+<br>
+{% else %}
+User access denied: not authenticated.
+{% endif %}
+
+
+
+{% endblock %}

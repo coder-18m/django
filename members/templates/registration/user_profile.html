@@ -15,7 +15,7 @@
   <div class="auth-item-1" >
     <div class="auth-pic">
       {% if page_user.profile_pic %}
-      <img style="width: 100%; border-radius: 50%;" src="{{ post.author.profile.profile_pic.url }}" alt="">
+      <img style="width: 100%; border-radius: 50%;" src="{{ page_user.profile_pic.url }}" alt="">
 
       {% else %}
       <img style="width: 100%; border-radius: 50%;" src="{% static 'Img/default_pic4.png' %}" alt="">

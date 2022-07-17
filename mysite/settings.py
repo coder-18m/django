@@ -42,8 +42,8 @@ SECRET_KEY = config('SECRET_KEY')
 #SECRET_KEY = "dbcbf480817117b90d296296b42b422412d874236ef22e75"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = config('DEBUG', cast=bool)
-DEBUG = True
+DEBUG = config('DEBUG', cast=bool)
+#DEBUG = True
 
 ALLOWED_HOSTS = ['calvsite.herokuapp.com']
 
@@ -181,7 +181,7 @@ EMAIL_USE_TLS = True
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_PORT = 587
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = "claire1005miller@gmail.com"
+EMAIL_HOST_USER = "millercm108@gmail.com"
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 #EMAIL_HOST_PASSWORD = "nmhyhpphjsoceibo"
 

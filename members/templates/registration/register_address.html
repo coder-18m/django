@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}
-CALV | Regiser Address
+CALV | Register Address
 {% endblock%}
 
 
@@ -10,7 +10,7 @@ CALV | Regiser Address
 <p class="about-p">Register your address here.</p>
 <form  class="form-login" action="." method="post">
   {{ form.as_p }}
-  <button class="button-54" role="button">Regiser Address</button>
+  <button class="button-54" role="button">Register Address</button>
   {% csrf_token %}
 </form>
 {% endblock %}

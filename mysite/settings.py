@@ -45,7 +45,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', cast=bool)
 #DEBUG = True
 
-ALLOWED_HOSTS = ['calvsite.herokuapp.com']
+ALLOWED_HOSTS = ['calvsite.herokuapp.com', 'www.contactcalv.org', 'contactcalv.org']
 
 
 # Application definition

@@ -198,3 +198,8 @@ LOGOUT_REDIRECT_URL = 'index'
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
+
+
+if os.getcwd() == '/app':
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+    SECURE_SSL_REDIRECT = True

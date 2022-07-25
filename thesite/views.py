@@ -7,6 +7,7 @@ from django.http import HttpResponseRedirect
 from django.core.mail import send_mail
 from django.contrib import messages
 from django_pandas.io import read_frame
+from django.conf import settings
 
 import xlwt
 
@@ -18,7 +19,16 @@ def subscribe(request):
     if request.method == 'POST':
         form = SubscribersForm(request.POST)
         if form.is_valid():
+            post_data = request.POST.copy()
+            email = post_data.get("email", None)
+            Subscribers.email = email
             form.save()
+            # send a confirmation mail
+            subject = 'NewsLetter Subscription'
+            message = 'Thanks for subscribing to us. You will now be receiving newsletter emails from CALV. If you have not yet, sign our petition found on our website at www.contactcalv.org.  Please do not reply on this email.'
+            email_from = settings.EMAIL_HOST_USER
+            recipient_list = [email, ]
+            send_mail(subject, message, email_from, recipient_list)
             messages.success(request, 'Subscription Successful')
             return redirect('subscribe')
     else:

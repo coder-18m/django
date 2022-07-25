@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+CALV | News Sign Up
+{% endblock%}
+
+
+  {% block content %}
+
+  <style>
+  .alert {
+    padding: 20px;
+    background-color: #4CBF43;
+    color: white;
+  }
+
+  .closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .closebtn:hover {
+    color: black;
+  }
+  .login-error-h1, .login-error{
+    font-size: 16px;
+    font-family: 'Ubuntu', sans-serif;
+  }
+
+  </style>
+  <h1 class="about-header">Subscribe To CALV News</h1>
+
+  {% for message in messages %}
+      <div class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        <h1 class="login-error-h1"> {{ message }}</h1>
+      </div>
+  {% endfor %}
+
+  <form class="form-login" method="POST">
+    {% csrf_token %}
+    {{ form }}
+  <button class="button-54" role="button">Subscribe</button>
+  </form>
+
+
+{% endblock %}

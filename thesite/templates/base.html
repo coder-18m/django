@@ -63,8 +63,9 @@
                   <a href="{% url 'edit_profile_page' user.profile.id %}">Edit Profile</a>
                   <a href="{% url 'show_profile_page' user.profile.id %}">View Profile</a>
                   {% if request.user.is_superuser %}
-                  <a href="{% url 'export_users_xls' %}">Export User Info</a>
-                  <a href="{% url 'export_addresses_xls' %}">Export Address Info</a>
+                  <a href="{% url 'mail_letter' %}">Send Email</a>
+                  <!-- here lies address info and user info export check txt file for info-->
+                  <a href="{% url 'export_subscribers_xls' %}">Export Subscribers</a>
                   {% endif %}
 
               {% else %}
@@ -144,9 +145,7 @@
         </ul>
       </li>
 
-      <li>
-        <a class="mobile-li" href="{% url 'donate' %}">Donate</a>
-      </li>
+      <!--donate button was here-->
 
 
 
@@ -163,7 +162,9 @@
     <div class="containerb">
       <div class="sec aboutus">
         <h2>About Us</h2>
-        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>The Latah Valley is a unique, special, and attractive area of the city of Spokane with a deep geologic and human history. The Latah Valley is home to people who deeply appreciate the attributes and treasures of conveniences to downtown/airport balanced with a rural feel, active farming, and a vibrant wildlife corridor home to moose, deer, coyote, osprey, bald eagle, and many other creatures.
+            Despite what should be protected, preserved, and a wisely planned for evolution of this area, the Latah Valley is under tremendous pressure by the City of Spokane and development interests whose pursuits are threatening not only the integrity and specialness of this area but literally the lives of the people and wildlife who call the Latah Valley home.
+            Latah Valley deserves to be protected!</p>
 
         <ul class="sci">
           <li>
@@ -183,10 +184,12 @@
       <div class="sec contact">
         <h2>Contact Info</h2>
         <ul class="info">
+          <!--
           <li>
             <span><i class="fa-solid fa-location-dot"></i></span>
             <span>Address</span>
           </li>
+          -->
           <li>
             <span><i class="fa-solid fa-envelope"></i></span>
             <p><a href="mailto:contactCALV@gmail.com">contactCALV@gmail.com</a></p>

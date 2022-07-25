@@ -1,16 +1,62 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, TemplateView
-from .models import Post, Category, Comment
-from .forms import PostForm, CommentForm
+from .models import Post, Category, Comment, Subscribers
+from .forms import PostForm, CommentForm, SubscribersForm, MailMessageForm
 from django.urls import reverse_lazy, reverse
 from django.http import HttpResponseRedirect
 from django.core.mail import send_mail
+from django.contrib import messages
+from django_pandas.io import read_frame
 
 import xlwt
 
 from django.http import HttpResponse
 from django.contrib.auth.models import User
 from .models import Place
+
+def subscribe(request):
+    if request.method == 'POST':
+        form = SubscribersForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Subscription Successful')
+            return redirect('subscribe')
+    else:
+        form = SubscribersForm()
+    context = {
+        'form': form,
+
+    }
+    return render(request, 'news/subscribe.html', context)
+
+def mail_letter(request):
+    emails = Subscribers.objects.all()
+    df = read_frame(emails, fieldnames=['email'])
+    mail_list = df['email'].values.tolist()
+    print(mail_list)
+    if request.method == 'POST':
+        form = MailMessageForm(request.POST)
+        if form.is_valid():
+            form.save()
+            title = form.cleaned_data.get('title')
+            message = form.cleaned_data.get('message')
+            send_mail(
+                title,
+                message,
+                'calv.official@outlook.com',
+                mail_list,
+                fail_silently=False,
+            )
+            messages.success(request, 'Email sent to Mail List')
+            return redirect('mail_letter')
+    else:
+        form = MailMessageForm()
+    context = {
+        'form': form,
+
+    }
+    return render(request, 'news/mail_letter.html', context)
+
 
 def export_users_xls(request):
     response = HttpResponse(content_type='application/ms-excel')
@@ -73,6 +119,36 @@ def export_addresses_xls(request):
     wb.save(response)
     return response
 
+#export Subscribers
+def export_subscribers_xls(request):
+    response = HttpResponse(content_type='application/ms-excel')
+    response['Content-Disposition'] = 'attachment; filename="subscribers.xls"'
+
+    wb = xlwt.Workbook(encoding='utf-8')
+    ws = wb.add_sheet('Subscribers')
+
+    # Sheet header, first row
+    row_num = 0
+
+    font_style = xlwt.XFStyle()
+    font_style.font.bold = True
+
+    columns = ['Emails']
+
+    for col_num in range(len(columns)):
+        ws.write(row_num, col_num, columns[col_num], font_style)
+
+    # Sheet body, remaining rows
+    font_style = xlwt.XFStyle()
+
+    rows = Subscribers.objects.all().values_list('email')
+    for row in rows:
+        row_num += 1
+        for col_num in range(len(row)):
+            ws.write(row_num, col_num, row[col_num], font_style)
+
+    wb.save(response)
+    return response
 
 # Create your views here.
 
@@ -135,7 +211,7 @@ def contact(request):
         From: {}
 
         '''.format(data['message'], data['email'])
-        send_mail(data['subject'], message, 'claire1005miller@gmail.com', ['claire1005miller@gmail.com'])
+        send_mail(data['subject'], message, 'calv.official@outlook.com', ['calv.official@outlook.com'])
 
         return render(request, 'contact.html', {'name': name})
     else:

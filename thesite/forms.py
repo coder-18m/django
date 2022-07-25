@@ -1,5 +1,15 @@
 from django import forms
-from .models import Post, Category, Comment
+from .models import Post, Category, Comment, Subscribers, MailMessage
+
+class SubscribersForm(forms.ModelForm):
+    class Meta:
+        model = Subscribers
+        fields = ['email', ]
+
+class MailMessageForm(forms.ModelForm):
+    class Meta:
+        model = MailMessage
+        fields = '__all__'
 
 #choices = [('uncategorized', 'uncategorized'), ('test', 'test'),]
 choices = Category.objects.all().values_list('name','name')

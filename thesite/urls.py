@@ -28,6 +28,10 @@ urlpatterns = [
     path('article/<int:pk>/comment/', AddCommentView.as_view(), name='add_comment'),
     path(r'^export/xls/$', views.export_users_xls, name='export_users_xls'),
     path(r'^export_address/xls/$', views.export_addresses_xls, name='export_addresses_xls'),
+    path(r'^export_subscribers/xls/$', views.export_subscribers_xls, name='export_subscribers_xls'),
+
 
     path('donate/', views.donate, name='donate'),
+    path('subscribe/', views.subscribe, name='subscribe'),
+    path('mail_letter/', views.mail_letter, name='mail_letter')
 ]

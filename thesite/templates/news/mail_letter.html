@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+CALV | Send News
+{% endblock%}
+
+
+  {% block content %}
+  <style>
+    .form-news {
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.14) , 0px 1px 10px 0px rgba(0,0,0,0.12) , 0px 2px 4px -1px rgba(0,0,0,0.2);
+
+      padding: 30px;
+
+      width: 90%;
+      margin: auto;
+    }
+    .form-news label{
+      margin-bottom: 10px;
+
+      font-size: 16px;
+      font-family: 'Ubuntu', sans-serif;
+    }
+    .form-news input{
+      font-size: 20px;
+      font-family: 'Barlow Condensed', sans-serif;
+      margin-bottom:10px;
+      padding: 5px;
+    }
+    .form-news p input{
+      font-family: 'Ubuntu', sans-serif;
+    }
+    .form-news textarea{
+      font-size: 16px;
+      resize: none;
+      margin-top:10px;
+      padding: 10px;
+      border-radius: 5px 5px 5px 5px;
+    }
+    .button-54{
+      max-width: 100px;
+    }
+  }
+  </style>
+
+  <style>
+  .alert {
+    padding: 20px;
+    background-color: #4CBF43;
+    color: white;
+  }
+
+  .closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .closebtn:hover {
+    color: black;
+  }
+  .login-error-h1, .login-error{
+    font-size: 16px;
+    font-family: 'Ubuntu', sans-serif;
+  }
+
+  </style>
+  <h1 class="about-header">Email Mail List</h1>
+
+  {% for message in messages %}
+      <div class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        <h1 class="login-error-h1"> {{ message }}</h1>
+      </div>
+  {% endfor %}
+
+  <br>
+  <form class="form-news" method="POST">
+    {% csrf_token %}
+    {{ form }}
+  <button class="button-54" role="button">Send</button>
+    </form>
+<br>
+{% endblock %}

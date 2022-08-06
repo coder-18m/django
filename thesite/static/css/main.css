@@ -67,7 +67,7 @@ footer p{
 }
 .sci li a {
   display: inline-block;
-  
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -547,10 +547,11 @@ nav ul ul ul li{
 
 
 .box{
-  background-image:url('/static/Img/calv-home.jpg');
+  background-image:url('/static/Img/calv-watermark.png');
   /*background-image: url('static/Img/calv-home.jpg'); */
   padding-bottom: 400px;
   background-size: cover;
+  background-position: center;
 }
 
 .heading-hr{

@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'cloudinary',
     'cloudinary_storage',
+    
 ]
 
 MIDDLEWARE = [
@@ -197,6 +198,15 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = 'home'
 
 LOGOUT_REDIRECT_URL = 'index'
+
+# Cloudinary Storage backend
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'hux9qd4mv',
+    'API_KEY': '249675799143621',
+    'API_SECRET': config('API_SECRET'),
+}
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())

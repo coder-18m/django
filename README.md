@@ -18,4 +18,5 @@
 
 ## Donations
 
-This is a free website to visit and inform about the efforts and plans of the nonprofit organization, CALV. If you'd like to support CALV as a nonprofit, you can donate at [contactcalv.org/donate/](https://www.contactcalv.org/donate/)
+This is a free website to visit and inform about the efforts and plans of the nonprofit organization, CALV. If you'd like to support CALV as a nonprofit, you can donate at
+[contactcalv.org/donate/](https://www.contactcalv.org/donate/)

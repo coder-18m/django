@@ -50,7 +50,7 @@
 
   <a class="title-post"href="{% url 'article-detail' post.pk %}">{{ post.title }}</a><br/>
   <div class="posts-wrapper">
-  <h1 class="art-h1">Author: {{ post.author.first_name }} {{ post.author.last_name }} -
+  <h1 style="word-wrap: break-word;" class="art-h1">Author: {{ post.author.first_name }} {{ post.author.last_name }} -
     <a href="{% url 'category' post.category|slugify %}"> {{post.category}}</a> -
     {{ post.post_date }}</h1>
 

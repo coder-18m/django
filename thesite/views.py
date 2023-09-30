@@ -25,12 +25,18 @@ def subscribe(request):
             form.save()
             # send a confirmation mail
             subject = 'NewsLetter Subscription'
-            message = 'Thanks for subscribing to us. You will now be receiving newsletter emails from CALV. If you have not yet, sign our petition found on our website at www.contactcalv.org.  Please do not reply to this email.'
+            message = 'Thanks for subscribing to us. Your email ' + email +  ' will now be receiving newsletter emails from CALV. If you have not yet, sign our petition found on our website at www.contactcalv.org.  Please do not reply to this email.'
             email_from = settings.EMAIL_HOST_USER
             recipient_list = [email, ]
             send_mail(subject, message, email_from, recipient_list)
+            # send a confirmation mail to host
+            subjectB = 'New Subscription'
+            messageB = 'The ' + email +  ' has subscribed to the CALV emailing list.'
+            email_fromB = settings.EMAIL_HOST_USER
+            recipient_listB = [settings.EMAIL_HOST_USER, ]
+            send_mail(subjectB, messageB, email_fromB, recipient_listB)
             messages.success(request, 'Subscription Successful')
-            return redirect('subscribe')
+            return redirect('subscribe')  
     else:
         form = SubscribersForm()
     context = {
